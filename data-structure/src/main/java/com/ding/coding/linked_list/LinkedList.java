@@ -1,4 +1,4 @@
-package com.ding.coding.list;
+package com.ding.coding.linked_list;
 
 /**
  * @author shiding
