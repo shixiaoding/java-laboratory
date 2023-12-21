@@ -2,6 +2,7 @@ package com.ding.coding;
 
 import com.ding.coding.array_list.ArrayList;
 import com.ding.coding.linked_list.LinkedList;
+import com.ding.coding.stack.ArrayDeque;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,15 +16,19 @@ public class Main {
 //
 //        xxxList.printLinkList();
 
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        list.add(6);
-        list.add(7);
-        list.add(8);
-        list.add(9);
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        deque.push(1);
+        deque.push(2);
+        deque.push(3);
+        deque.push(4);
+        deque.push(5);
+        deque.push(6);
+        deque.push(7);
+        deque.push(8);
+        deque.push(9);
+
+        deque.pop();
+        deque.pop();
+        deque.push(10);
     }
 }
