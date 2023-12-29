@@ -3,7 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/data-structure/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/data-structure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-pattern/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-pattern/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-tools/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-tools/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sse-agreement/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sse-agreement/src/main/resources" charset="UTF-8" />
   </component>
 </project>

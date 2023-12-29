@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Demo</title>
+</head>
+<body>
+<h1>SSE Demo</h1>
+<button onclick="connectSSE()">建立 SSE 连接</button>
+<button onclick="closeSSE()">断开 SSE 连接</button>
+<br/><br/>
+<div id="message"></div>
+<script>
+    const messageElement = document.getElementById('message');
+    let eventSource;
+
+    // 连接 SSE
+    function connectSSE() {
+        eventSource = new EventSource('localhost:8080/sse/events');
+
+        eventSource.addEventListener('customEvent', handleReceivedMessage);
+        eventSource.onopen = handleConnectionOpen;
+        eventSource.onerror = handleConnectionError;
+    }
+
+    // 断开 SSE 连接
+    function closeSSE() {
+        eventSource.close();
+        appendMessage(`SSE 连接关闭，状态${eventSource.readyState}`);
+    }
+
+    // 处理从服务端收到的消息
+    function handleReceivedMessage(event) {
+        const data = JSON.parse(event.data);
+        appendMessage(`${data.id} --- ${data.time}`);
+    }
+
+    // 连接建立成功的处理函数
+    function handleConnectionOpen() {
+        appendMessage(`SSE 连接成功，状态${eventSource.readyState}`);
+    }
+
+    // 连接发生错误的处理函数
+    function handleConnectionError() {
+        appendMessage(`SSE 连接错误，状态${eventSource.readyState}`);
+    }
+
+    // 将消息添加到页面上
+    function appendMessage(message) {
+        messageElement.innerHTML += `${message}<br />`;
+    }
+
+</script>
+</body>
+</html>
