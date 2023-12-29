@@ -37,11 +37,9 @@ public class SseImportController {
 
     public static Map<String, Integer> importCountMap = new ConcurrentHashMap<>();
 
-
     @PostMapping(value = "/import")
     public Boolean createImportTask(@RequestParam("file") MultipartFile file,
                                     @RequestParam("code") String code) throws IOException {
-//        this.connenct(code);
         Integer totalCount = getTotalCount(file);
         handle(file, code, totalCount);
         return Boolean.TRUE;
