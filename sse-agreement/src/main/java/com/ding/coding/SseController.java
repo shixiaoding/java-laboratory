@@ -24,6 +24,12 @@ public class SseController {
 
     public static Map<String, SseEmitter> sseEmitterMap = new ConcurrentHashMap<>();
 
+    /**
+     * 建立SSE连接
+     *
+     * @param id
+     * @return
+     */
     @GetMapping(path = "subscribe")
     public SseEmitter push(String id) {
         // 超时时间设置为1小时
@@ -34,6 +40,13 @@ public class SseController {
         return sseEmitter;
     }
 
+    /**
+     * 获取当前服务结点的SSE连接，发送数据。
+     * @param id
+     * @param content
+     * @return
+     * @throws IOException
+     */
     @GetMapping(path = "push")
     public String push(String id, String content) throws IOException {
         SseEmitter sseEmitter = sseEmitterMap.get(id);
@@ -43,6 +56,11 @@ public class SseController {
         return "over";
     }
 
+    /**
+     * 释放SSE连接
+     * @param id
+     * @return
+     */
     @GetMapping(path = "over")
     public String over(String id) {
         SseEmitter sseEmitter = sseEmitterMap.get(id);
